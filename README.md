@@ -8,6 +8,7 @@ A tool to give an overview of git repositories in Rust
 ## Current development
 
 Features:
+- [ ] Make this a actual CLI.
 - [ ] Summarize number of lines written by each user.
     - [x] Get all files.
     - [x] Run git blame for each file.
