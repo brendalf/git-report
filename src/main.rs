@@ -1,5 +1,7 @@
 use regex::Regex;
 use std::{process::Command, collections::HashMap};
+mod utils;
+use utils::{return_file_activity, get_tracked_files};
 
 fn summarize() {
     let ls_output = Command::new("git").args(["ls-files"]).output().expect("Not a git repository");
@@ -35,5 +37,8 @@ fn summarize() {
 }
 
 fn main() {
+    let files: Vec<String> = get_tracked_files();
+    let activity: HashMap<String, u32> = return_file_activity(&files);
+    println!("File activity: {activity:?}");
     summarize();
 }
